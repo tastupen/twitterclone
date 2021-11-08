@@ -1,0 +1,44 @@
+<%= form_with(model: tweet, remote: true) do |form| %>
+    <% if tweet.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+
+        <ul>
+          <% tweet.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+    
+    <div class="form-profile">
+      <div class="form-image">
+        <% if @user.avatar.attached? %>
+          <%= image_tag @user.avatar %>
+        <% end %>
+      </div>
+      <div class="form-user">
+        <h3 class="form-title-name">ユーザー名</h3>
+        <%= @user.name %>
+      </div>  
+    </div>
+
+    <div class="form-field">
+      <%= form.text_area :content, class: 'text-field' %>
+    </div>
+    
+    <div class="btn-area">
+      <div>
+        <%= form.label :images do %>
+          <i class="far fa-image image-color fa-2x"></i>
+          <%= form.file_field :images, multiple: true, class: "image-none"  %>
+        <% end %>
+      </div>
+      <br>
+      <div class="actions">
+        <%= form.submit 'ツイート', class: "buttan" %>
+      </div>
+    </div>
+<% end %>
+
+

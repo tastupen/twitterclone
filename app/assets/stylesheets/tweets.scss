@@ -1,0 +1,274 @@
+// Place all the styles related to the tweets controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.main{
+  width: 70%;
+  float: right;
+}
+
+.main-contents, .left-navi, .right-navi {
+  height: 400px;
+}
+
+.main-contents {
+  border: 1px solid #ccc;
+  color: #fff;
+  float: left;
+  width: 59.5%;
+  height: auto;
+  
+  .home {
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+    pointer-events: none;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    color: black;
+  }
+  
+  .home-title {
+    font-size: 20px;
+    color: #432;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .tweet {
+    border-bottom: 1px solid #ccc;
+  }
+}
+
+.left-navi {
+  color: #432;
+  width: 29.8%;
+  float: right;
+  height: 100vh;
+  border: 1px solid #ccc;
+  position: fixed;
+  
+  .left-navi-list {
+    list-style: none;
+  }
+  
+  .left-navi-item{
+    padding: 0 0 20px 20px;
+    font-size: 30px;
+  }
+  
+  .nav-profile {
+    color: #432;
+    text-decoration: none;
+  }
+  
+  .nav-logout {
+    color: #432;
+    text-decoration: none;
+  }
+  
+  .left-navi-item1 {
+    color: #00bfff;
+    padding: 0 0 20px 20px;
+    font-size: 30px;
+  }
+  
+  .left-navi-item2 {
+    font-size: 30px;
+    padding: 20px;
+    font-weight: bold;
+  }
+  
+  .nav-home {
+    color: #432;
+    text-decoration: none;
+  }
+  
+  .nav-search {
+    color: #432;
+    text-decoration: none;
+  }
+  
+  //ツイートボタン
+  .tweet1 {
+    background-color: #00bfff;
+    border-radius: 50px;
+    padding: 13px 100px;
+    width: 5%;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+}
+
+.right-navi {
+  color: #fff;
+  float: right;
+  width: 39.8%;
+  height: 60px;
+  position: sticky;
+  top: 0;
+  
+  .search-form{
+    
+  }
+  
+  .post-list{
+    color: black;
+  }
+  
+  .randam-user {
+    color: black;
+    background-color: #f8f8ff;
+    position: absolute;
+    width: 300px;
+    margin: 20px 35px;
+  }
+}
+
+
+
+
+//投稿部分
+
+.modal{
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.modal__bg{
+  background: rgba(0,0,0,0.8);
+  height: 100vh;
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+.modal__content{
+  background: #fff;
+  left: 50%;
+  padding: 30px;
+  position: absolute;
+  top: 40%;
+  transform: translate(-50%,-50%);
+  width: 30%;
+}
+
+.btn-batu{
+  font-size: 40px;
+  text-decoration: none;
+  color: black;
+}
+
+
+.show-link {
+  text-decoration: none;
+}
+
+.show-link:hover {
+  color: rgba(0,0,0,0.8);
+}
+
+.form-profile {
+  display: flex;
+  
+  img{
+    width: 100px;
+    height: 100px;
+    border: solid 1px black;
+    border-radius: 50%;
+  } 
+  
+  .form-user{
+    color: black;
+    padding: 10px;
+  }
+}
+
+//コメント
+.comment-main {
+  margin: 0 0 0 115px;
+  padding: 0 0 10px 0;
+}
+
+.buttan {
+  background-color: #00bfff;
+  border-radius: 50px;
+  padding: 13px 80px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border: none;
+}
+
+.image {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  img{
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.tweet-edit {
+  display: flex;
+  justify-content: flex-end;
+  border-bottom: solid 1px #ccc;
+}
+
+//フォロー
+
+.follow {
+  color: black;
+  display: flex;
+  border-bottom: solid 1px #ccc;
+  
+  .follow-link {
+    text-decoration: none;
+  }
+}
+
+.likes {
+  color: black;
+}
+
+.form-field {
+  text-align: center;
+}
+
+.text-field {
+  padding: 10px;
+  width: 90%;
+  border-radius: 10px;
+  border-color: #00bfff;
+  resize: none;
+  height: 100px;
+}
+
+.btn-area {
+  display: flex;
+  justify-content: space-evenly;
+  
+  .image-color {
+    color: #00bfff;
+    width: 20px;
+  }
+  
+  .image-none {
+    display: none;
+  }
+  
+  .buttan {
+    background-color: #00bfff;
+    border-radius: 50px;
+    padding: 13px 80px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    border: none;
+  }
+}

@@ -1,0 +1,85 @@
+<div class="main">
+    <div class="main-contents">
+      <div class="home">
+        <%= @user.name %>
+      </div>
+      <p class="notice"><%= flash[:notice] %></p>
+      <div style="color: black;">
+        <%= link_to root_path do %>
+          <i class="fas fa-arrow-left"></i>
+        <% end %>
+      </div>
+      <div class="user-body">
+    　　<h1 class="username"><%= @user.name %></h1>
+    　　<div class="Flex">
+        　<div class="profile">
+        　　  <div>
+        　　  　<% if @user.avatar.attached? %>
+          　　　 　<%= image_tag @user.avatar %>
+        　　  　<% end %>
+        　　  </div>
+        　　　<h3 class="title-name"><%= @user.name %></h3>
+        　　　<h3 class="title-profile">プロフィール</h3>
+        　　　<% if @user.profile.present? %>
+        　　  　<p class="user-profile"><%= @user.profile %></P>
+        　　　<% end %>
+        　</div>
+        　　<div class="profile-edit">
+        　　    <% unless current_user == @user %>
+        　　      <div id="follow-button-#{user.id}" >
+        　　        <% if current_user.following?(@user) %>
+        　　          <%= link_to 'フォロー解除' , user_relationships_path(@user.id), method: :delete %>
+        　　        <% else %>
+        　　          <%= link_to 'フォロー', user_relationships_path(@user.id), method: :post %>
+        　　        <% end %>
+        　　      </div>
+        　　    <% else %>
+        　　　     <%= link_to 'プロフィール編集', edit_user_registration_path, class: "profilelink" %>
+        　　　   <% end %>
+        　　</div>
+    　　</div>
+    　　<div class="follow">
+    　　    <% @user ||= current_user %>
+    　　      <div>
+    　　        <%= @user.followings.count %><br>
+    　　        <%= link_to 'フォロー', followings_user_path(@user), class: "follow-link" %>
+    　　      </div>
+    　　      <div>
+    　　        <%= @user.followers.count %><br>
+    　　        <%= link_to'フォロワー', followers_user_path(@user), class: "follow-link" %>
+    　　      </div>
+    　　</div>
+　　　</div>
+　　　<div>
+　　　  <%= render partial: 'tweets/tweet', collection: @tweets %>
+　　　</div>
+    </div>
+    <div class="right-navi">
+      <div class="search-form">
+        <%= form_with url: finder_path, method: :get, local: true  do |f| %>
+        　<%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+  　　　　<% end %>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="left-navi">
+    <ul class="left-navi-list">
+      <li class="left-navi-item1">
+        <i class="fab fa-twitter"></i>
+      </li>
+      <li class="left-navi-item2">
+        <i class="fas fa-home"></i><%= link_to 'ホーム', root_path, class: "nav-home" %>
+      </li>
+      <li class="left-navi-item">
+        <i class="fas fa-search"></i><%= link_to '検索', finder_path, class: "nav-search" %>
+      </li>
+      <li class="left-navi-item">
+        <i class="fas fa-user"></i><%= link_to 'プロフィール', user_path(current_user), class: "nav-profile" %>
+      </li>
+      <li class="left-navi-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-logout" %>
+      </li>
+    </ul>
+  </div>
+

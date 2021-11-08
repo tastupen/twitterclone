@@ -1,0 +1,46 @@
+<%= link_to tweet_path(tweet), method: :get, class: "show-link" do %>
+ <div class="form-profile" style="padding: 10px 0;">
+    <div class="form-image">
+      <% if tweet.user.avatar.attached? %>
+        <%= image_tag tweet.user.avatar %>
+      <% end %>
+    </div>
+    <div class="form-user">
+      <h3 class="form-title-name">ユーザー名</h3>
+      <%= tweet.user.name %>
+    </div>  
+ </div>
+
+ <P style="color: black;margin-bottom: 0;"><%= raw(tweet.content.gsub(/\r/, "<br>")) %></P>
+
+ <div class="image">
+  <% if tweet.images.attached? %>
+    <% tweet.images.each do |image| %>
+      <%= image_tag image %> <br>
+    <% end %>
+  <% end %>
+ </div>
+ <div class="tweet-edit">
+   <div class="comment">
+    <%= link_to tweet_path(tweet) do %>
+      <i class="far fa-comment"></i>
+    <% end %> 
+    </div>
+    <div class="likes">
+      <% if current_user.liked_by?(tweet.id) %>
+      <td>
+        <%= link_to  destroy_like_path(tweet), method: :DELETE do %>
+          <i class="fa fa-heart unlike-btn"></i>
+        <% end %>
+        <%= tweet.likes.count %>
+      </td>
+      <% else %>
+      <td>
+        <%= link_to create_like_path(tweet), method: :POST do %>
+          <i class="fa fa-heart like-btn"></i>
+        <% end %>
+        <%= tweet.likes.count %></td>
+      <% end %>
+  </div>
+ </div>
+<% end %>

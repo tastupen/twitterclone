@@ -1,0 +1,138 @@
+//共通部分
+body {
+    margin: 0;
+    padding: 0;
+}
+
+//header
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 210px;
+    margin: 14px;
+    text-decoration: none;
+    font-size: 50px;
+    color: #fff;
+}
+
+.main-nav {
+    display: flex;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    margin-top: 34px;
+    list-style: none;
+    
+}
+
+.nav-item {
+    margin-left: 36px;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: #432;
+}
+
+//main
+
+.container {
+    background-color: #00bfff;
+    height: 100vh;
+} 
+
+.title {
+    color: #fff;
+    text-align: center;
+    margin: 0 20%;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+.search-form {
+    form {
+        position:relative;
+        max-width:300px;	
+        margin-bottom:20px;
+    }
+    input[type="text"]{
+        position:absolute;
+        top:0;
+        outline:0;
+        width: 300px;
+        height:40px;
+        padding:0 10px;
+        border-radius:30px;
+        background:#f8f8ff;
+        margin-top: 5px;
+        border: none;
+        
+    }
+    .search-btn {
+        height:40px;
+        top:0;
+        background:none;
+        color:#666;
+        border:none;
+        position:absolute;
+        font-size:20px;
+    }
+    .search-btn:hover {
+        color:#7fbfff;
+    }
+}
+
+
+//devise
+.background {
+    background-color: gray;
+    height: 100vh;
+    padding: 10%;
+}
+
+.card-body {
+    background-color: #fff;
+    margin: 0 20%;
+    border-radius: 10px;
+    padding: 5px 5px 10% 5px;
+    
+    .edit {
+        margin-left: 5%;
+    }
+    
+    .card-field {
+        margin-left: 15px;
+    }
+    
+    .field {
+        margin-top: 10px;
+    }
+    
+    .text_field {
+        padding: 10px;
+        width: 50%;
+        border-radius: 10px;
+        border-color: #00bfff;
+    }
+    
+    .btn {
+        border: solid 1px #00bfff;
+        padding: 10px;
+        background-color: #00bfff;
+        color: #fff;
+        width: 200px;
+    }
+    
+    .back {
+        text-decoration: none;
+        color: black;
+    }
+}

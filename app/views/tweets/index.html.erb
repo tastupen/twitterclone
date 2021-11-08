@@ -1,0 +1,71 @@
+  <div class="main">
+    <div class="main-contents">
+      <div class="home">
+        <%= link_to 'ホーム', root_path, class: "home-title" %>
+      </div>
+      <p class="notice"><%= flash[:notice] %></p> 
+      <div class="tweet">
+        <%= render 'form', tweet: @tweet %>
+      </div>
+      <div id="messages">
+        <%= render @tweets %>
+      </div>
+    </div>
+    <div class="right-navi">
+      <div class="search-form">
+        <%= form_with url: finder_path, method: :get, local: true, id: 'form' do |f| %>
+        　<%= f.text_field :keyword, placeholder: "キーワードを入力" %>
+  　　　　<% end %>
+      </div>
+      <div class="randam-user">
+        <P>おすすめユーザー</P>
+        <% @randam.each do |user| %>
+          <div class="form-box">
+            <div class="form-profile">
+              <div class="form-image">
+                <% if user.avatar.attached? %>
+                  <%= image_tag user.avatar %>
+                <% end %>
+              </div>
+              <div class="form-user">
+                <h3 class="form-title-name">ユーザー名</h3>
+                <%= link_to "#{user.name}", user_path(user) %>
+              </div>  
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="left-navi">
+    <ul class="left-navi-list">
+      <li class="left-navi-item1">
+        <i class="fab fa-twitter"></i>
+      </li>
+      <li class="left-navi-item2">
+        <i class="fas fa-home"></i><%= link_to 'ホーム', root_path, class: "nav-home" %>
+      </li>
+      <li class="left-navi-item">
+        <i class="fas fa-search"></i><%= link_to '検索', finder_path, class: "nav-search" %>
+      </li>
+      <li class="left-navi-item">
+        <i class="fas fa-user"></i><%= link_to 'プロフィール', user_path(current_user), class: "nav-profile" %>
+      </li>
+      <li class="left-navi-item">
+        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-logout" %>
+      </li>
+    </ul>
+    <br>
+      <div class="post">
+　　　  <%= link_to 'ツイート', new_tweet_path, class: "js-modal-open tweet1", remote: true %>
+      </div>
+      <div class="modal js-modal">
+　　　  <div class="modal__bg js-modal-close"></div>
+          <div class="modal__content">
+          <%= link_to '×', tweets_path, class: "js-modal-close btn-batu", remote: true %>
+
+          <%= render 'form', tweet: @tweet %>
+        </div>
+　　　</div>
+  </div>
+

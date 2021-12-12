@@ -18,3 +18,4 @@ ryby-v
 rails -v
 5.2.3
 # url
+https://stark-springs-98210.herokuapp.com/

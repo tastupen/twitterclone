@@ -74,3 +74,5 @@ gem 'jquery-rails'
 
 # Amazon S3にファイルを保存できる
 gem 'aws-sdk-s3'
+#.env
+gem 'dotenv-rails'

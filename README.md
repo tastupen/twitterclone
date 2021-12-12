@@ -3,14 +3,13 @@
 # name
 twitterclone
 # description
-今回はtwitterを意識して、つくりました
-.
+今回はtwitterを意識して作りました
 ポートフォリオの一部にするためにつくりました。
 # 使ったgem
 devise.
-jquery
-ajax
-sass
+jquery.
+ajax.
+sass.
 activestrage
 # Requirement
 ryby-v
